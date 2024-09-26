@@ -12,30 +12,12 @@ export class Lift {
     this.index = index;
     this.isLiftInUse = false;
     this.direction = "up";
-    this.top =
-      (totalFloors - 1) * liftHeight +
-      (2 * totalFloors - 1) * liftSpacing +
-      totalFloors * floorBorderWidth -
-      2 * liftBorderWidth;
+    this.top = calculateLiftTopPosition(0);
     this.left = index * (liftWidth + liftMargin) + buttonBoxWidth;
-  }
-
-  getFloorStatus() {
-    return this.floor;
-  }
-
-  raiseLiftTo(floor) {
-    this.floor += floor;
-    this.top -= liftHeight + liftSpacing;
-  }
-
-  lowerLiftTo(floor) {
-    this.floor -= floor;
-    this.top += liftHeight + liftSpacing;
   }
 }
 
-let LiftsArray = [];
+export let LiftsArray = [];
 
 export const buildLiftSimulationUI = ({ floors, lifts }) => {
   const liftSimulationWrapper = document.querySelector(
@@ -48,7 +30,6 @@ export const buildLiftSimulationUI = ({ floors, lifts }) => {
     floorDiv.setAttribute("data-floorIndex", i);
     liftSimulationWrapper.appendChild(floorDiv);
 
-    //addbuttons
     const buttonsDiv = document.createElement("div");
     const upButton = document.createElement("button");
     const downButton = document.createElement("button");
@@ -60,16 +41,12 @@ export const buildLiftSimulationUI = ({ floors, lifts }) => {
     upButton.classList.add("up-button");
     downButton.classList.add("down-button");
 
-    //adding buttonDiv to floor
     buttonsDiv.appendChild(upButton);
     buttonsDiv.appendChild(downButton);
     floorDiv.appendChild(buttonsDiv);
   }
 
-  console.log("lifts", lifts);
-
   for (let i = 0; i < lifts; i++) {
-    console.log(i);
     const currLift = new Lift(i, floors);
     LiftsArray.push(currLift);
     const liftDiv = document.createElement("div");
@@ -80,5 +57,3 @@ export const buildLiftSimulationUI = ({ floors, lifts }) => {
     liftSimulationWrapper.appendChild(liftDiv);
   }
 };
-
-

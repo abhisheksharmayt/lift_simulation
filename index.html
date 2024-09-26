@@ -1,33 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>LIFT SIMULATION</title>
     <link rel="stylesheet" href="style.css" />
-    <title>Lift Simulation</title>
+    <script src="index.js" async defer></script>
   </head>
   <body>
-    <div id="input-page">
-      <form id="input-form">
-        <input
-          id="floors-input"
-          type="number"
-          min="2"
-          placeholder="Enter floors"
-        />
-        <input
-          id="lifts-input"
-          type="number"
-          min="1"
-          placeholder="Enter Lifts"
-        />
-        <button id="submit-btn" type="submit">Submit</button>
-      </form>
+    <div class="container">
+      <div class="card">
+        <div class="inputBox">
+          <label class="floor1"> Enter Floors </label><br />
+          <input type="number" id="floorInput" class="input" /><br />
+          <label class="lift1">Enter Lifts </label><br />
+          <input type="number" id="liftInput" class="input" /><br />
+          <button type="submit" id="submit" class="demo">Submit</button>
+        </div>
+      </div>
     </div>
-    <div id="lift-simulation-page" style="display: none">
-      <h2>Lift Simulation</h2>
-      <div id="lift-simulation-wrapper"></div>
-    </div>
-    <script src="./index.js" type="module"></script>
+
+    <div class="layout" id="layer"></div>
   </body>
 </html>
