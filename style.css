@@ -1,0 +1,36 @@
+h2 {
+  text-align: center;
+}
+
+.floor {
+  height: 100px;
+  border: 1px solid black;
+  border-top: none;
+}
+
+.floor:first-of-type {
+  border-top: 1px solid black;
+}
+
+#lift-simulation-wrapper {
+  position: relative;
+}
+
+.lift {
+  position: absolute;
+  height: 80px;
+  width: 60px;
+  border: 1px solid black;
+}
+
+.buttons {
+  width: 150px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  /* height: 100%; */
+}
